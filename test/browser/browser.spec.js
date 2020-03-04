@@ -1,4 +1,4 @@
-/* global browser:false, by:false, $$:false, jasmine:false */
+/* global browser:false, by:false, $$:false */
 const { until } = require('selenium-webdriver');
 
 const v1Regex = new RegExp(
@@ -43,6 +43,8 @@ const PORT = 9003;
 
 describe('BrowserStack Local Testing', () => {
   async function testExpectations(path, titleFilter) {
+    browser.waitForAngularEnabled(false);
+
     const url = `http://127.0.0.1:${PORT}/${path}`;
     await browser.driver.get(url);
 
@@ -65,16 +67,6 @@ describe('BrowserStack Local Testing', () => {
 
     expect(titles).toEqual(expectationTitles.filter(titleFilter));
   }
-
-  var originalTimeout;
-  beforeEach(() => {
-    originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
-  });
-
-  afterEach(() => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
-  });
 
   describe('webpack', () => {
     it('it renders all', async () =>

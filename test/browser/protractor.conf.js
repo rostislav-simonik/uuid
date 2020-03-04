@@ -119,6 +119,9 @@ exports.config = {
 
   multiCapabilities,
   maxSessions: 5, // see https://www.browserstack.com/question/617
+  getPageTimeout: 30000,
+  allScriptsTimeout: 30000,
+  jasmineNodeOpts: { defaultTimeoutInterval: 30000 },
 
   beforeLaunch: async () => {
     console.log('Starting local http server');
