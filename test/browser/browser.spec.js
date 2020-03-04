@@ -1,5 +1,5 @@
-/* global browser:false, $$:false */
-const { By, until } = require('selenium-webdriver');
+/* global browser:false, by:false, $$:false, jasmine:false */
+const { until } = require('selenium-webdriver');
 
 const v1Regex = new RegExp(
   /^[0-9A-F]{8}-[0-9A-F]{4}-1[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i,
@@ -46,7 +46,7 @@ describe('BrowserStack Local Testing', () => {
     const url = `http://127.0.0.1:${PORT}/${path}`;
     await browser.driver.get(url);
 
-    await browser.wait(until.elementLocated(By.id('done')), 30000);
+    await browser.wait(until.elementLocated(by.css('#done')), 30000);
     const elements = await $$('li');
 
     // Unfortunately the WebDriver API is not thread safe and we cannot use Promise.all() to
@@ -65,6 +65,16 @@ describe('BrowserStack Local Testing', () => {
 
     expect(titles).toEqual(expectationTitles.filter(titleFilter));
   }
+
+  var originalTimeout;
+  beforeEach(() => {
+    originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+  });
+
+  afterEach(() => {
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+  });
 
   describe('webpack', () => {
     it('it renders all', async () =>
