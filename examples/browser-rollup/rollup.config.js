@@ -1,7 +1,15 @@
 const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
 const { terser } = require('rollup-plugin-terser');
 
-const plugins = [resolve({ browser: true }), terser()];
+const plugins = [
+  resolve({ browser: true }),
+
+  commonjs({
+    extensions: ['.cjs'],
+  }),
+  terser(),
+];
 module.exports = [
   {
     input: './example-all.js',
