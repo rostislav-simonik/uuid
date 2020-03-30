@@ -20,14 +20,14 @@
   "main": "dist/index.js",
   "exports": {
     "require": "./dist/index.js",
-    "import": "./dist/esm-node/index.js"
+    "import": "./dist/esm-node/index.mjs"
   },
-  "module": "dist/esm-node/index.js",
+  "module": "dist/esm-node/index.mjs",
   "browser": {
     "./dist/md5.js": "./dist/md5-browser.js",
     "./dist/rng.js": "./dist/rng-browser.js",
     "./dist/sha1.js": "./dist/sha1-browser.js",
-    "./dist/esm-node/index.js": "./dist/esm-browser/index.js"
+    "./dist/esm-node/index.mjs": "./dist/esm-browser/index.js"
   },
   "files": [
     "CHANGELOG.md",
