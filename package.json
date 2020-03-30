@@ -14,20 +14,20 @@
   ],
   "license": "MIT",
   "bin": {
-    "uuid": "dist/bin/uuid"
+    "uuid": "./dist/bin/uuid"
   },
   "sideEffects": false,
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "exports": {
-    "require": "dist/index.js",
-    "import": "./wrapper.mjs"
+    "require": "./dist/index.js",
+    "import": "./dist/esm-node/index.mjs"
   },
-  "module": "dist/esm-node/index.js",
+  "module": "./dist/esm-node/index.mjs",
   "browser": {
     "./dist/md5.js": "./dist/md5-browser.js",
     "./dist/rng.js": "./dist/rng-browser.js",
     "./dist/sha1.js": "./dist/sha1-browser.js",
-    "./dist/esm-node/index.js": "./dist/esm-browser/index.js"
+    "./dist/esm-node/index.mjs": "./dist/esm-browser/index.js"
   },
   "files": [
     "CHANGELOG.md",
@@ -38,8 +38,7 @@
     "v1.js",
     "v3.js",
     "v4.js",
-    "v5.js",
-    "wrapper.mjs"
+    "v5.js"
   ],
   "devDependencies": {
     "@babel/cli": "7.8.4",
@@ -47,6 +46,7 @@
     "@babel/preset-env": "7.8.7",
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
+    "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",
     "@wdio/browserstack-service": "5.18.7",
     "@wdio/cli": "5.18.7",
