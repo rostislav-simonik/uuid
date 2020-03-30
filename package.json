@@ -18,6 +18,10 @@
   },
   "sideEffects": false,
   "main": "dist/index.js",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/esm-node/index.js"
+  },
   "module": "dist/esm-node/index.js",
   "browser": {
     "./dist/md5.js": "./dist/md5-browser.js",
