@@ -1,4 +1,4 @@
-module.exports = exports.default = {
+module.exports = module.exports.default = {
   _nodeId: undefined,
   _clockseq: undefined,
   // Previous uuid creation time

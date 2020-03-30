@@ -41,8 +41,8 @@ do
     mv "$FILE" "${FILE%.js}.mjs"
 done
 # Fix imports
-sed -i '' -e "s/\.js'/.mjs'/" "$DIR"/esm-node/*.mjs
-sed -i '' -e "s/\.\/v1state.cjs'/..\/v1state.cjs'/" "$DIR"/esm-node/v1.mjs
+sed -i'' -e "s/\.js'/.mjs'/" "$DIR"/esm-node/*.mjs
+sed -i'' -e "s/\.\/v1state.cjs'/..\/v1state.cjs'/" "$DIR"/esm-node/v1.mjs
 rm -f "$DIR"/esm-node/v1state.cjs
 
 # UMD Build
