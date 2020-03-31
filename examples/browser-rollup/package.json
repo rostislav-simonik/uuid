@@ -10,8 +10,8 @@
     "uuid": "file:../../.local"
   },
   "devDependencies": {
-    "rollup": "^1.32.0",
+    "rollup": "^2.3.2",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.2.0"
+    "rollup-plugin-terser": "^5.3.0"
   }
 }
